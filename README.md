@@ -17,7 +17,7 @@ Feel free to explore these repositories to see what I've been up to!
 
 I'm always eager to learn new technologies and improve my existing skills. Currently, I'm focusing on:
 
-- Deepening my understanding of C++ and Python.
+- Hope my skills in CP.
 - Enhancing my web development skills, specifically back-end technologies.
 
 ## 📫 Let's Connect
