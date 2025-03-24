@@ -6,10 +6,10 @@ Welcome to my GitHub profile! I'm passionate about programming and continuously 
 
 Here are some of the repositories I've been working on:
 
-- **CP-Documentation** A collection of Competitive Programming (CP) documentation and resources
-- **CP-Assignments** Assignments completed with my teammates at UM6P-CC ConKerOrs under the guidance of Mr. Riduan ABID
-- **S4_24-25_Cpp** C++ projects from the fourth semester of the 2024-2025 academic year
-- **S4_24-25_Web_Dev** My journey into web development in my fourth semester
+- **CP-Documentation :** A collection of Competitive Programming (CP) documentation
+- **CP-Assignments :** Assignments completed with my teammates at UM6P-CC ConKerOrs under the guidance of Mr. Riduan ABID
+- **S4_24-25_Cpp :** C++ projects from the fourth semester of the 2024-2025 academic year
+- **S4_24-25_Web_Dev :** My journey into web development in my fourth semester
 
 Feel free to explore these repositories to see what I've been up to!
 
@@ -17,8 +17,9 @@ Feel free to explore these repositories to see what I've been up to!
 
 I'm always eager to learn new technologies and improve my existing skills. Currently, I'm focusing on:
 
-- Hope my skills in CP.
+- Honing my skills in CP.
 - Enhancing my web development skills, specifically back-end technologies.
+- Breaking into cybersecurity.
 
 ## 📫 Let's Connect
 
