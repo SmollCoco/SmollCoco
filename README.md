@@ -32,6 +32,14 @@
 
 ###
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SmollCoco/SmollCoco/output/pacman-contribution-graph-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/SmollCoco/SmollCoco/output/pacman-contribution-graph.svg">
+  <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/SmollCoco/SmollCoco/output/pacman-contribution-graph.svg">
+</picture>
+
+###
+
 <div align="center">
   <a href="smollcoco_" target="_blank">
     <img src="https://img.shields.io/static/v1?message=Discord&logo=discord&label=&color=7289DA&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="discord logo"  />
@@ -47,13 +55,9 @@
 ###
 
 <div align="center">
-  <a href="https://open.spotify.com/user/TheSmollCoco">
-    <img src="https://spotify-recently-played-readme.vercel.app/api?user=TheSmollCoco&count=3&unique=true" alt="Spotify recently played"  />
+  <a href="https://open.spotify.com/user/31l2dvno2u3x26rlq33tgj6rak5u">
+    <img src="https://spotify-recently-played-readme.vercel.app/api?user=31l2dvno2u3x26rlq33tgj6rak5u&count=3&unique=true" alt="Spotify recently played"  />
   </a>
 </div>
-
-###
-
-<img src="https://raw.githubusercontent.com/SmollCoco/SmollCoco/output/snake.svg" alt="Snake animation" />
 
 ###
