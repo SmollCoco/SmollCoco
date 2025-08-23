@@ -12,6 +12,9 @@
   <a href="youssef.bentaleb@um6p.ma" target="_blank">
     <img src="https://img.shields.io/static/v1?message=Outlook&logo=microsoft-outlook&label=&color=0078D4&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="microsoft-outlook logo"  />
   </a>
+  <a href="https://youssefbentaleb.vercel.app" target="_blank">
+  <img src="https://img.shields.io/static/v1?message=My%20Website&logo=google-chrome&label=&color=0A66C2&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="website logo" />
+  </a>
 </div>
 
 ###
