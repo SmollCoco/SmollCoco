@@ -1,0 +1,267 @@
+<svg viewBox="0 0 900 300" width="900" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Ocean gradient: bright cyan at top, deep navy at bottom -->
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#5de2ff"/>
+      <stop offset="18%"  stop-color="#0a9ad8"/>
+      <stop offset="55%"  stop-color="#024888"/>
+      <stop offset="100%" stop-color="#010c26"/>
+    </linearGradient>
+
+    <!-- Light ray gradient: white-blue fading to nothing -->
+    <linearGradient id="rayG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#c8f2ff" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#0088cc" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Bottom vignette -->
+    <linearGradient id="vig" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#010c26" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#010c26" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- Glow for text -->
+    <filter id="gTxt" x="-10%" y="-40%" width="120%" height="180%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="b"/>
+      <feFlood flood-color="#00ccff" result="c"/>
+      <feComposite in="c" in2="b" operator="in" result="s"/>
+      <feMerge>
+        <feMergeNode in="s"/>
+        <feMergeNode in="s"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Blur for light rays -->
+    <filter id="rayB" x="-30%" y="-10%" width="160%" height="120%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="13"/>
+    </filter>
+
+    <!-- Glow halo around character -->
+    <filter id="gChar" x="-30%" y="-15%" width="160%" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="b"/>
+      <feFlood flood-color="#4dd8ff" flood-opacity=".45" result="c"/>
+      <feComposite in="c" in2="b" operator="in" result="s"/>
+      <feMerge>
+        <feMergeNode in="s"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- ═══════════════════════════════════════ BACKGROUND ══ -->
+  <rect width="900" height="300" fill="url(#bg)"/>
+
+  <!-- ═══════════════════════════════════════ LIGHT RAYS ══ -->
+  <g filter="url(#rayB)">
+    <polygon points="20,0  105,0  248,300  163,300" fill="url(#rayG)">
+      <animate attributeName="opacity" values=".08;.18;.08" dur="4s"   repeatCount="indefinite"/>
+    </polygon>
+    <polygon points="170,0 245,0  368,300  293,300" fill="url(#rayG)">
+      <animate attributeName="opacity" values=".15;.07;.15" dur="5.2s" repeatCount="indefinite"/>
+    </polygon>
+    <polygon points="330,0 392,0  492,300  430,300" fill="url(#rayG)">
+      <animate attributeName="opacity" values=".06;.15;.06" dur="3.4s" repeatCount="indefinite"/>
+    </polygon>
+    <polygon points="570,0 632,0  714,300  652,300" fill="url(#rayG)">
+      <animate attributeName="opacity" values=".09;.2;.09"  dur="6.1s" repeatCount="indefinite"/>
+    </polygon>
+  </g>
+
+  <!-- ══════════════════════════════════ CAUSTIC SHIMMER ══ -->
+  <ellipse cx="108" cy="13" rx="88" ry="11" fill="#8ef4ff" opacity=".22">
+    <animate attributeName="cx"      values="108;126;108" dur="2.6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values=".14;.28;.14" dur="2.6s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="358" cy="8"  rx="118" ry="9"  fill="#8ef4ff" opacity=".18">
+    <animate attributeName="cx"      values="358;338;358" dur="3.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values=".11;.24;.11" dur="3.2s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="678" cy="15" rx="78"  ry="8"  fill="#8ef4ff" opacity=".16">
+    <animate attributeName="cx"      values="678;696;678" dur="2.1s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values=".10;.22;.10" dur="2.1s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- Water surface glow strip -->
+  <rect x="0" y="0" width="900" height="5" fill="#cefaff" opacity=".42">
+    <animate attributeName="opacity" values=".30;.58;.30" dur="1.9s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- ══════════════════════════════════════ CHARACTER ══ -->
+  <!-- Floating up/down via animateTransform (SMIL, works in img SVG) -->
+  <g filter="url(#gChar)">
+    <g>
+      <animateTransform attributeName="transform" type="translate"
+        values="218,44; 218,31; 218,44" dur="4s" repeatCount="indefinite"
+        calcMode="spline" keyTimes="0;0.5;1"
+        keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+
+      <!-- ── HAIR WISPS (flowing upward — character is sinking) ── -->
+      <path d="M -9 -2  Q -17 -40 -11 -62 Q -7 -74 1 -65"
+            stroke="#091d40" stroke-width="6"   fill="none" stroke-linecap="round"/>
+      <path d="M  1 -4  Q   1 -48  7 -70 Q 11 -82 17 -73"
+            stroke="#091d40" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+      <path d="M 14 -2  Q  21 -44 19 -66 Q 18 -78 24 -70"
+            stroke="#091d40" stroke-width="5"   fill="none" stroke-linecap="round"/>
+      <path d="M 25 -1  Q  35 -38 31 -58"
+            stroke="#091d40" stroke-width="4"   fill="none" stroke-linecap="round"/>
+      <!-- Hair cap -->
+      <path d="M -11 -2 Q -5 -30 5 -24 Q 13 -32 22 -27 Q 33 -18 29 -2"
+            fill="#0f2748"/>
+
+      <!-- ── HEAD ── -->
+      <ellipse cx="10" cy="4"  rx="22" ry="24" fill="#f2e0c6"/>
+      <!-- Soft highlight -->
+      <ellipse cx=" 4" cy="-2" rx=" 6" ry=" 7" fill="#fffaf2" opacity=".42"/>
+
+      <!-- Eyes — closed, peaceful -->
+      <path d="M  2 2 Q  6 -1 11 2" stroke="#7a5030" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M 13 2 Q 17 -1 22 2" stroke="#7a5030" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+      <!-- ── NECK ── -->
+      <rect x="5" y="26" width="10" height="10" rx="2" fill="#f2e0c6"/>
+
+      <!-- ── UNIFORM BODY ── -->
+      <rect x="-20" y="36" width="60" height="58" rx="8" fill="#1b3b70"/>
+      <!-- Subtle highlight on jacket -->
+      <rect x="-18" y="36" width="28" height="28" rx="6" fill="#1f4484" opacity=".55"/>
+
+      <!-- White collar / shirt -->
+      <polygon points="10,36  -5,52  10,50" fill="#eaf1ff"/>
+      <polygon points="10,36  25,52  10,50" fill="#eaf1ff"/>
+
+      <!-- Red tie -->
+      <polygon points="10,36  7,54 10,60 13,54" fill="#cc2200"/>
+      <polygon points=" 7,54 10,60 13,54 10,56" fill="#aa1800"/>
+
+      <!-- ── LEFT ARM ── -->
+      <path d="M -20 46 Q -54 36 -70 53"
+            stroke="#1b3b70" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <ellipse cx="-70" cy="54" rx="9" ry="8" fill="#f2e0c6"/>
+
+      <!-- ── RIGHT ARM ── -->
+      <path d="M  40 46 Q  72 38  86 55"
+            stroke="#1b3b70" stroke-width="16" fill="none" stroke-linecap="round"/>
+      <ellipse cx="87" cy="57" rx="9" ry="8" fill="#f2e0c6"/>
+
+      <!-- ── LEGS ── -->
+      <rect x="-11" y="94" width="16" height="70" rx="7" fill="#1b3b70"/>
+      <rect x=" 15" y="94" width="16" height="70" rx="7" fill="#1b3b70"/>
+
+      <!-- ── SHOES ── -->
+      <ellipse cx="-3"  cy="167" rx="12" ry="7" fill="#091428"/>
+      <ellipse cx=" 23" cy="167" rx="12" ry="7" fill="#091428"/>
+      <ellipse cx="-5"  cy="165" rx=" 8" ry="4" fill="#182040" opacity=".5"/>
+      <ellipse cx=" 21" cy="165" rx=" 8" ry="4" fill="#182040" opacity=".5"/>
+
+      <!-- Ambient aura (very faint) -->
+      <ellipse cx="10" cy="96" rx="100" ry="138" fill="#2ad4ff" opacity=".05"/>
+    </g>
+  </g>
+
+  <!-- ══════════════════════════════════════ BUBBLES ══ -->
+  <!-- Large left -->
+  <circle cx="142" cy="320" r="8" fill="none" stroke="#a2ecff" stroke-width="1.5">
+    <animate attributeName="cy" values="320;-40" dur="9s"   repeatCount="indefinite" begin="0s"/>
+    <animate attributeName="opacity" values=".7;0"  dur="9s"   repeatCount="indefinite" begin="0s"/>
+    <animate attributeName="cx" values="142;156;138;150;142" dur="9s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Small -->
+  <circle cx="280" cy="320" r="4" fill="#a2ecff">
+    <animate attributeName="cy" values="320;-10" dur="6.5s" repeatCount="indefinite" begin="1.2s"/>
+    <animate attributeName="opacity" values=".62;0" dur="6.5s" repeatCount="indefinite" begin="1.2s"/>
+    <animate attributeName="cx" values="280;270;278;280" dur="6.5s" repeatCount="indefinite" begin="1.2s"/>
+  </circle>
+  <!-- Tiny -->
+  <circle cx="96"  cy="320" r="3" fill="#c2f4ff">
+    <animate attributeName="cy" values="320;-10" dur="5.5s" repeatCount="indefinite" begin="2.8s"/>
+    <animate attributeName="opacity" values=".8;0"  dur="5.5s" repeatCount="indefinite" begin="2.8s"/>
+  </circle>
+  <!-- Mid outline -->
+  <circle cx="177" cy="320" r="5" fill="none" stroke="#82dfff" stroke-width="1.2">
+    <animate attributeName="cy" values="320;-10" dur="8s"   repeatCount="indefinite" begin=".6s"/>
+    <animate attributeName="opacity" values=".55;0" dur="8s"   repeatCount="indefinite" begin=".6s"/>
+    <animate attributeName="cx" values="177;164;172;180;177" dur="8s" repeatCount="indefinite" begin=".6s"/>
+  </circle>
+  <!-- Tiny x2 -->
+  <circle cx="122" cy="320" r="2" fill="#c2f4ff">
+    <animate attributeName="cy" values="320;-10" dur="4.5s" repeatCount="indefinite" begin="2s"/>
+    <animate attributeName="opacity" values=".8;0"  dur="4.5s" repeatCount="indefinite" begin="2s"/>
+  </circle>
+  <circle cx="382" cy="320" r="2" fill="#c2f4ff">
+    <animate attributeName="cy" values="320;-10" dur="5s"   repeatCount="indefinite" begin="4s"/>
+    <animate attributeName="opacity" values=".8;0"  dur="5s"   repeatCount="indefinite" begin="4s"/>
+  </circle>
+  <!-- Right-side bubbles -->
+  <circle cx="682" cy="320" r="5" fill="none" stroke="#a2ecff" stroke-width="1.2">
+    <animate attributeName="cy" values="320;-10" dur="7.5s" repeatCount="indefinite" begin="1.8s"/>
+    <animate attributeName="opacity" values=".5;0"  dur="7.5s" repeatCount="indefinite" begin="1.8s"/>
+    <animate attributeName="cx" values="682;695;678;687;682" dur="7.5s" repeatCount="indefinite" begin="1.8s"/>
+  </circle>
+  <circle cx="762" cy="320" r="3" fill="#b2eeff">
+    <animate attributeName="cy" values="320;-10" dur="6s"   repeatCount="indefinite" begin="3.5s"/>
+    <animate attributeName="opacity" values=".7;0"  dur="6s"   repeatCount="indefinite" begin="3.5s"/>
+  </circle>
+  <circle cx="842" cy="320" r="7" fill="none" stroke="#82dfff" stroke-width="1.5">
+    <animate attributeName="cy" values="320;-10" dur="10s"  repeatCount="indefinite" begin=".3s"/>
+    <animate attributeName="opacity" values=".45;0" dur="10s"  repeatCount="indefinite" begin=".3s"/>
+    <animate attributeName="cx" values="842;858;838;852;842" dur="10s" repeatCount="indefinite" begin=".3s"/>
+  </circle>
+
+  <!-- ═══════════════════════════════════ RIGHT TEXT ══ -->
+
+  <!-- "P3" large logo -->
+  <g filter="url(#gTxt)">
+    <text x="558" y="112" font-family="Georgia,'Times New Roman',serif"
+          font-size="92" font-weight="bold" fill="#ffffff" opacity="0">
+      P3
+      <animate attributeName="opacity" values="0;1" dur="1.2s" fill="freeze" begin=".4s"/>
+    </text>
+    <text x="560" y="138" font-family="Georgia,'Times New Roman',serif"
+          font-size="13" letter-spacing="5" fill="#82e4ff" opacity="0">
+      PERSONA 3
+      <animate attributeName="opacity" values="0;1" dur="1s" fill="freeze" begin=".9s"/>
+    </text>
+    <text x="560" y="165" font-family="Georgia,'Times New Roman',serif"
+          font-size="22" font-weight="bold" letter-spacing="7" fill="#00ccff" opacity="0">
+      RELOAD
+      <animate attributeName="opacity" values="0;1" dur="1s" fill="freeze" begin="1.3s"/>
+    </text>
+  </g>
+
+  <!-- Divider line -->
+  <line x1="558" y1="179" x2="878" y2="179" stroke="#00aade" stroke-width="1" opacity="0">
+    <animate attributeName="opacity" values="0;.55" dur=".8s" fill="freeze" begin="1.7s"/>
+  </line>
+
+  <!-- Name -->
+  <text x="558" y="210" font-family="Georgia,'Times New Roman',serif"
+        font-size="20" letter-spacing="1.5" fill="#ffffff" opacity="0">
+    Youssef Bentaleb
+    <animate attributeName="opacity" values="0;1" dur=".8s" fill="freeze" begin="2s"/>
+  </text>
+
+  <!-- Sub-info -->
+  <text x="558" y="236" font-family="Georgia,'Times New Roman',serif"
+        font-size="11.5" letter-spacing="1.5" fill="#82ccee" opacity="0">
+    CS Engineering  ·  UM6P  ·  Morocco
+    <animate attributeName="opacity" values="0;1" dur=".8s" fill="freeze" begin="2.3s"/>
+  </text>
+
+  <!-- Hello message -->
+  <text x="558" y="260" font-family="Georgia,'Times New Roman',serif"
+        font-size="11" letter-spacing=".8" font-style="italic" fill="#5aaac8" opacity="0">
+    &#x201C;Hello, traveler. Welcome to my code.&#x201D;
+    <animate attributeName="opacity" values="0;1" dur=".8s" fill="freeze" begin="2.6s"/>
+  </text>
+
+  <!-- Memento Mori -->
+  <text x="558" y="288" font-family="Georgia,'Times New Roman',serif"
+        font-size="10" letter-spacing="4" fill="#2a6a8a" opacity="0">
+    &#x25EF;  MEMENTO MORI  &#x25EF;
+    <animate attributeName="opacity" values="0;.78" dur="1.4s" fill="freeze" begin="3.1s"/>
+  </text>
+
+  <!-- Bottom vignette -->
+  <rect x="0" y="244" width="900" height="56" fill="url(#vig)"/>
+</svg>
